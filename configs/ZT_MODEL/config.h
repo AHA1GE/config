@@ -23,8 +23,8 @@
 
 #define FC_TARGET_MCU        AT32F435G
 
-#define BOARD_NAME           NEUTRONRCF435MINI
-#define MANUFACTURER_ID      NERC
+#define BOARD_NAME           ZT_MODEL
+#define MANUFACTURER_ID      CUST
 
 #define USE_ACC
 #define USE_GYRO
