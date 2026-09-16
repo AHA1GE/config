@@ -88,8 +88,12 @@
 #define ADC_INSTANCE ADC1
 #define ADC1_DMA_OPT 11
 
-#define SERIALRX_PROVIDER SERIALRX_SBUS
-#define SERIALRX_UART SERIAL_PORT_USART3
+// RX is configured per SKU by the factory CLI, not here, so that one hex serves
+// both the SBUS and the ELRS variant.
+//   - No SERIALRX_PROVIDER: the firmware falls back to SERIALRX_CRSF (see pg/rx.c).
+//   - No SERIALRX_UART: leaving it set forces USART3 back to RX_SERIAL on every
+//     serial-config reset, and USART3 (port index 3) outranks UART5 (index 5) in
+//     findSerialPortConfig(), which would break the ELRS variant.
 #define USE_SERIALRX_SBUS
 #define USE_BRUSHED
 #define DEFAULT_BLACKBOX_DEVICE BLACKBOX_DEVICE_FLASH
